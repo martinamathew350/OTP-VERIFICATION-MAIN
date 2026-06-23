@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- OTP View -->
+        <div id="otp-view" class="view active">
+            <div class="header">
+                <h2>Verify it's you</h2>
+                <p>We sent a 6-digit code to your registered device</p>
+            </div>
+            <form id="otp-form">
+                <div class="otp-inputs">
+                    <input type="text" maxlength="1" class="otp-box" required>
+                    <input type="text" maxlength="1" class="otp-box" required>
+                    <input type="text" maxlength="1" class="otp-box" required>
+                    <input type="text" maxlength="1" class="otp-box" required>
+                    <input type="text" maxlength="1" class="otp-box" required>
+                    <input type="text" maxlength="1" class="otp-box" required>
+                </div>
+                <button type="submit" class="btn primary-btn" id="verify-btn" disabled>Verify Code</button>
+            </form>
+            <div class="resend-container">
+                <p>Didn't receive the code?</p>
+                <button id="resend-btn" class="text-btn" disabled>Resend in <span id="timer">30</span>s</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

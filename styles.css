@@ -1,0 +1,192 @@
+:root {
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(255, 255, 255, 0.3);
+    --border-focus: rgba(255, 255, 255, 0.8);
+    --btn-bg: rgba(255, 255, 255, 0.15);
+    --btn-hover: rgba(255, 255, 255, 0.25);
+    --btn-disabled: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Using a dark tech/neon laptop background similar to the image */
+    background: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center / cover;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+/* Optional dark overlay to make text pop more */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: -1;
+}
+
+.container {
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 24px; /* More rounded corners like the image */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.view {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.view.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase; /* Matching the image style */
+    color: var(--text-main);
+}
+
+.header p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.otp-inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.otp-box {
+    width: 45px;
+    height: 56px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text-main);
+    /* Translucent white for inputs */
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    outline: none;
+    backdrop-filter: blur(4px);
+}
+
+.otp-box:focus {
+    border-color: var(--border-focus);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px; /* Pill-shaped button like the image */
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.primary-btn {
+    background-color: var(--btn-bg);
+    color: var(--text-main);
+}
+
+.primary-btn:hover:not(:disabled) {
+    background-color: var(--btn-hover);
+    border-color: var(--border-focus);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.primary-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.primary-btn:disabled {
+    background-color: var(--btn-disabled);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.resend-container {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 8px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.text-btn:hover:not(:disabled) {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.text-btn:disabled {
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* Make placeholder text white/transparent */
+::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
